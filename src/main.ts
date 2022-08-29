@@ -54,6 +54,7 @@ function onMessageHandler(
             tenEggs.push(egg);
           }
         } while (egg === 10);
+
         client.say(channel, `Wow! That's ${tenEggs.length} ten ThankEgg 's in a row! [TEST MODE]`);
       }
 
@@ -61,18 +62,12 @@ function onMessageHandler(
   }
 }
 
+/**
+ * This has a 1 in 1002 chance each of returning 0 or 11; otherwise it has a 100 in 1002 (roughly 10% chance) of 1-10
+ */
 function rollEggs() {
   // this will return a random integer between 0 and 1001 inclusive
   const result = Math.floor(Math.random() * 1002);
-
-  if (result === 0) {
-    return 0;
-  }
-
-  if (result === 1001) {
-    return 11;
-  }
-
   return Math.ceil(result / 100);
 }
 
